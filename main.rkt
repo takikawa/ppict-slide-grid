@@ -9,7 +9,7 @@
 (provide set-grid-base-pict!
          (rename-out [background-pict grid-base-pict]))
 
-(define background-pict 
+(define (background-pict)
   (let loop ([hl (colorize (hline client-w 1) "gray")]
              [vl (colorize (vline 1 client-h) "gray")]
              [pict (blank client-w client-h)]
@@ -30,4 +30,4 @@
                  (+ pos 0.05))])))
 
 (define (set-grid-base-pict!)
-  (pslide-base-pict (λ () background-pict)))
+  (pslide-base-pict background-pict))
